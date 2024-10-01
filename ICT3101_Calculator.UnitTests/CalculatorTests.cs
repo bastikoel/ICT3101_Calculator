@@ -92,5 +92,44 @@ namespace Lab1.UnitTests
         {
             Assert.Throws<ArgumentException>(() => _calculator.AreaCircle(-4));
         }
+        [Test]
+        public void WhenCalculateTheNumersOfTheFile()
+        {
+            // Arrange: Erstelle eine Instanz von FileReader
+            IFileReader fileReader = new FileReader();
+
+            // Act: Rufe die GenMagicNum-Methode mit dem fileReader-Parameter auf
+            double result = _calculator.GenMagicNum(3, fileReader);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(46));
+        }
+
+        [Test]
+        public void WhenCalculateNegativeNumersOfTheFile()
+        {
+            // Arrange
+            IFileReader fileReader = new FileReader();
+
+            // Act
+            double result = _calculator.GenMagicNum(2, fileReader);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(30));
+        }
+
+        [Test]
+        public void WhenCalculateEmptyNumersOfTheFile()
+        {
+            // Arrange
+            IFileReader fileReader = new FileReader();
+
+            // Act
+            double result = _calculator.GenMagicNum(8, fileReader);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(0));
+        }
+
     }
 }

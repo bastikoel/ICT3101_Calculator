@@ -18,10 +18,7 @@ public class ShippedSourceInstructionsStepDefinitions
     [When(@"I calculate the shipped source instructions with a total of (.*) instructions and (.*) redundant instructions")]
     public void WhenICalculateTheShippedSourceInstructions(int totalInstructions, int redundantInstructions)
     {
-        
             _context.Result = _context.Calculator.CalculateSSI(totalInstructions, redundantInstructions);
-        
-        
     }
 
     [Then(@"the shipped source instructions should be (.*)")]
